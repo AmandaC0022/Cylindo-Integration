@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cylindo Test</title>
+
+    <!-- MY STYLESHEET -->
+    <link rel="stylesheet" href="./style.css" /> 
+
+    <!-- CYLINDO JS & STYLESHEET -->
+    <script src="https://viewer.cylindo.com/v4/viewer.min.js"></script>
+    <link rel="stylesheet" type="text/css" 
+      href="https://viewer.cylindo.com/v4/viewer.min.css">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
+</head>
+
+<body>
+
+  <!-- <div id="cylindoContainer"></div> -->
+
+    <!-- 360 HD Viewer -->
+  <div class="column">
+    <div id="put-viewer-here"></div>
+  </div>
+  <!-- MENU STARTS -->
+  <div class="accordion column small" id="accordionExample">
+
+    <!-- FABRIC CHOICE -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Fabric Choice
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        
+        <!-- FABRIC CHOICES -->
+        <div class="accordion-body">
+          <ul id="fabric_choices" data-feature-type="UPHOLSTERY" class="variation-selector upholstery">
+            <!-- This is now pulling from the db -->
+            <!-- <li data-feature-value="ABBEY_PEWTER" class="variation selected" style="background-image: url('./images/3722_AbbeyPewter-500x500.jpeg')"></li>
+            <li data-feature-value="ABBO_BLACK" class="variation" style="background-image: url('./images/3772_AbboBlack-500x500.jpeg')"></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- CUSHION TYPE -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Cushion Type
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul data-feature-type="CUSHION TYPE" class="variation-selector cushions"></ul>
+
+          <!-- CUSHION CHOICES -->
+
+          <li data-feature-value="2 OVER 2" class="variation">2 OVER 2</li>
+          <li data-feature-value="2 OVER BENCH" class="variation">2 OVER BENCH</li>
+          <li data-feature-value="3 OVER 3" class="variation">3 OVER 3</li>
+          <li data-feature-value="3 OVER BENCH" class="variation">3 OVER BENCH</li>
+          <!-- <div class="form-check cushion">
+            <input data-feature-value="2 OVER 2" class="form-check-input cushionVariation" type="radio" name="flexRadioDefault" id="flexRadioDefault1 2_OVER_2" checked>
+            <label class="form-check-label" for="flexRadioDefault1">
+              2 Over 2
+            </label>
+          </div>
+          <div class="form-check cushion">
+            <input data-feature-value="2 OVER BENCH" class="form-check-input cushionVariation" type="radio" name="flexRadioDefault" id="flexRadioDefault2 2_OVER_BENCH">
+            <label class="form-check-label" for="flexRadioDefault2">
+              2 Over Bench
+            </label>
+          </div>
+          <div class="form-check cushion">
+            <input data-feature-value="3 OVER 3" class="form-check-input cushionVariation" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+            <label class="form-check-label" for="flexRadioDefault3">
+              3 Over 3
+            </label>
+          </div>
+          <div class="form-check cushion">
+            <input data-feature-value="3 OVER BENCH" class="form-check-input cushionVariation" type="radio" name="flexRadioDefault" id="flexRadioDefault4 3_OVER_BENCH">
+            <label class="form-check-label" for="flexRadioDefault4">
+              3 Over Bench
+            </label>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- LEG FINISH -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Leg Finish
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+
+        <!-- LEG FINISH CHOICES -->
+        <div class="accordion-body">
+          <ul id="leg_choices" data-feature-type="LEGS" class="variation-selector legs">
+            <li data-feature-value="ROUNDLEGS_W" class="variation selected" style="background: #5f3b2f"></li>
+            <li data-feature-value="ROUNDLEG_OW" class="variation" style="background: #ab7d5b "></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAILHEAD -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Nailhead
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          
+          <!-- YES OR NO OPTIONS -->
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAILHEAD FINISH -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Nailhead Finish
+        </button>
+      </h2>
+
+      <!-- NAILHEAD FINISHES OPTIONS -->
+      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          selections go here
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- JQUERY -->
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+</script>
+
+<!-- MY JS FILE -->
+<script src="./js/index.js"></script>
+
+</html>

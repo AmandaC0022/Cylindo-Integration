@@ -1,0 +1,46 @@
+{
+    "fabrics": [
+        {
+            "id": 3760, 
+            "name": "CICERO_CADET",
+            "image": "./images/3760_CiceroCadet-600x600.jpeg" 
+        }, 
+        {
+            "id": 3706, 
+            "name": "MABRY_BLUE",
+            "image": "./images/3706_MabryBlue-600x600.jpeg" 
+        }, 
+        {
+            "id": 3637, 
+            "name": "FOLD_NATURAL",
+            "image": "./images/3637_FoldNatural-600x599.jpeg" 
+        },
+        {
+            "id": 3784, 
+            "name": "FABLE_CAPER",
+            "image": "./images/3784_FableCaper-600x600.jpeg" 
+        },
+        {
+            "id": 3840, 
+            "name": "HATTAWAY_NOIR",
+            "image": "./images/3840_HattawayNoir-600x600.jpeg" 
+        },
+        {
+            "id": 3611, 
+            "name": "EMILY_OYSTER",
+            "image": "./images/3611_EmilyOyster-600x600.jpeg" 
+        }
+    ], 
+    "legs": [
+        {
+            "id": 1, 
+            "name": "ROUNDLEGS_W", 
+            "color": "#5f3b2f" 
+        }, 
+        {
+            "id": 2, 
+            "name": "ROUNDLEG_OW", 
+            "color": "#ab7d5b" 
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+/* General Styles */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+body{
+  font-family: 'Open Sans';
+}
+
+.hide {
+  display: hidden; 
+}
+
+.column {
+  width:548px;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.column.small {
+  width:400px;
+  margin-left:35px;
+}
+
+hr {
+  border:none;
+  height:1px;
+  background:rgba(0,0,0,0.1);
+  margin:20px 0;
+}
+
+/* Swatch styles */
+
+.list-label {
+  text-transform:uppercase;
+  font-weight:500;
+  font-size:11px;
+  margin:0px;
+}
+
+/*Variation Selector Styles*/
+.variation-selector {
+  /* width:110px; */
+  display:block;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.variation-selector .variation {
+  background:grey;
+  width:32px;
+  height:32px;
+  display:inline-block;
+  border-radius:0px;
+  cursor:pointer;
+}
+
+.variation-selector .variation:hover:before,
+.variation-selector .variation.selected:before{
+  content:"✓";
+  width:32px;
+  height:32px;
+  background:rgba(0,0,0,0.1);
+  border-radius:0px;
+  position:absolute;
+  text-align:center;
+  line-height:32px;
+  color:white;
+  text-shadow:0px 2px 4px rgba(0,0,0,0.7);
+  font-size:15px;
+}
+
+/*Override style for the viewer tooltip text */
+.cylindo-drag-tooltip,.cylindo-zoom-drag-tooltip{
+  color:#B2A2D3 !important;
+}
