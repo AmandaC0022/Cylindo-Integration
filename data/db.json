@@ -53,7 +53,20 @@
             "name": "ABBO MELON",
             "image":"./images/3611_EmilyOyster-600x600.jpeg", 
             "color": "#e25a34"
+        },
+        {
+            "id": 3520, 
+            "name": "AIRMAN BLUE",
+            "image":"./images/3611_EmilyOyster-600x600.jpeg", 
+            "color": "#091933"
+        },
+        {
+            "id": 3524, 
+            "name": "AIRMAN SKY",
+            "image":"./images/3611_EmilyOyster-600x600.jpeg", 
+            "color": "#447283"
         }
+        
     ], 
     "legs": [
         {

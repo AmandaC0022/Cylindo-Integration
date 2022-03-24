@@ -16,6 +16,7 @@ var opts = {
   // features is the default
   'features': ["UPHOLSTERY", "3500", "CUSHION TYPE", "2 OVER 2", "NAILHEAD", "NO" ], 
   'containerID': '#put-viewer-here', 
+  //how to add lifestyles and videos 
   'alternateContent': [{
     'provider': 'direct', 
     'description': 'Halton Sofa', 
@@ -36,6 +37,7 @@ if (cylindo) {
   });
 }
 
+//gets a displays the feature using a click event
 features.forEach(function (feature) {
   feature.addEventListener("click", function(event) {
     event.preventDefault(); 
@@ -52,6 +54,8 @@ features.forEach(function (feature) {
     }
   }) 
 })
+
+//CYLINDO'S CODE 
 
 //Variation selection handler 
 // $(".variation").click( function() {
@@ -89,12 +93,8 @@ const renderFabrics = async () => {
   const res = await fetch(uri); 
   //converts data to json 
   const fabrics = await res.json(); 
-
-  fabrics.forEach(fabric => {
-    console.log(fabric.color); 
-  }); 
-  
   let template = ''; 
+
   fabrics.forEach(fabric => {
     template += `
     <li data-feature-value="${fabric.id}" class="variation feature" id="${fabric.name}" style="background:${fabric.color}"></li>
@@ -127,17 +127,13 @@ const renderLegs = async () => {
 
 renderLegs(); 
 
-// const cylindoContainer = document.querySelector("#cylindoContainer"); 
+//CONFIGURATION API CALL 
+const getData = async () => {
+    let uri = "https://content.cylindo.com/api/v2/5006/products/SCH-147288/configuration"; 
+    //makes the call & stores the data as res 
+    const res = await fetch(uri); 
+    const data = await res.json(); 
+    console.log(data); 
+  } 
 
-// //TEST API CALL 
-// const renderCylindo = async () => {
-//     let uri = "https://content.cylindo.com/api/v2/5006/products/SCH-147288/frames/1/"; 
-//     //makes the call & stores the data as res 
-//     const res = await fetch(uri); 
-//     //converts data to json 
-//     const viewer = await res.json(); 
-//   console.log(viewer); 
-//     // cylindoContainer.innerHTML = viewer; 
-//   } 
-
-//   renderCylindo(); 
+  getData(); 
