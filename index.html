@@ -41,11 +41,9 @@
         
         <!-- FABRIC CHOICES -->
         <div class="accordion-body">
-          <ul id="fabric_choices" data-feature-type="UPHOLSTERY" class="variation-selector upholstery">
+          <ul id="fabric_choices" data-feature-type="UPHOLSTERY" class="variation-selector feature upholstery">
             <!-- This is now pulling from the db -->
-            <!-- <li data-feature-value="ABBEY_PEWTER" class="variation selected" style="background-image: url('./images/3722_AbbeyPewter-500x500.jpeg')"></li>
-            <li data-feature-value="ABBO_BLACK" class="variation" style="background-image: url('./images/3772_AbboBlack-500x500.jpeg')"></li>
-          </ul> -->
+          </ul>
         </div>
       </div>
     </div>
@@ -59,13 +57,13 @@
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <ul data-feature-type="CUSHION TYPE" class="variation-selector cushions">
-            
+          <ul data-feature-type="CUSHION TYPE" class="variation-selector feature cushions">
+
           <!-- CUSHION CHOICES -->
-            <li data-feature-value="2 OVER 2" class="cushions">2 OVER 2</li>
-            <li data-feature-value="2 OVER BENCH" class="cushions" >2 OVER BENCH</li>
-            <li data-feature-value="3 OVER 3" class="cushions" >3 OVER 3</li>
-            <li data-feature-value="3 OVER BENCH" class="cushions" >3 OVER BENCH</li>
+            <li data-feature-value="2 OVER 2" class="feature cushions">2 OVER 2</li>
+            <li data-feature-value="2 OVER BENCH" class="feature cushions" >2 OVER BENCH</li>
+            <li data-feature-value="3 OVER 3" class="feature cushions">3 OVER 3</li>
+            <li data-feature-value="3 OVER BENCH" class="feature cushions" >3 OVER BENCH</li>
           </ul>
         </div>
       </div>
@@ -97,22 +95,13 @@
           Nailhead
         </button>
       </h2>
-      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+      <div id="collapseFour" class="accordion-collapse collapse feature nailheads" data-feature-type="NAILHEAD" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          
+          <ul class="nailheads feature variation-selector" data-feature-type="NAILHEAD">
           <!-- YES OR NO OPTIONS -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-            <label class="form-check-label" for="flexRadioDefault2">
-              No
-            </label>
-          </div>
+            <li class="nailheads feature" data-feature-value="YES">YES</li>
+            <li class="nailheads feature" data-feature-value="NO">NO</li>
+          </ul>
         </div>
       </div>
     </div>

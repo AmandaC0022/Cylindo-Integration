@@ -1,6 +1,7 @@
 
 const cushions = document.querySelectorAll(".cushions"); 
-// const feature = document.querySelector(".variation-selector"); 
+const nailheads = document.querySelectorAll(".nailheads"); 
+const features = document.querySelectorAll(".feature"); 
 // const variation = document.querySelectorAll(".variation"); 
 
 
@@ -21,8 +22,7 @@ var opts = {
     'poster': 'https://gabbyhome.com/wp-content/uploads/SCH-147288-1-1-760x760.jpg', 
     'thumb': 'https://gabbyhome.com/wp-content/uploads/SCH-147288-1-1-760x760.jpg', 
     'sources': [{
-      'src': 'https://player.vimeo.com/video/502344696?title=0&byline=0&portrait=0&badge=0', 
-      'type': 'video/mp4', 
+      'src': 'https://player.vimeo.com/video/502344696?title=0&byline=0&portrait=0&badge=0' 
     }],
   }],
 }
@@ -36,12 +36,13 @@ if (cylindo) {
   });
 }
 
-cushions.forEach(function (cushion) {
-  cushion.addEventListener("click", function(event) {
+features.forEach(function (feature) {
+  feature.addEventListener("click", function(event) {
     event.preventDefault(); 
     var value = event.target.getAttribute('data-feature-value');
     var type = event.target.parentNode.getAttribute('data-feature-type'); 
     console.log(value, type); 
+
 
     if(viewerInstance) {
       viewerInstance.setFeatures([
@@ -51,16 +52,6 @@ cushions.forEach(function (cushion) {
     }
   }) 
 })
-
-//THIS WORKS!!!!! 
-// var setCushions = (value, type) => { 
-//   if(viewerInstance) {
-//     viewerInstance.setFeatures([
-//       type, 
-//       value
-//     ]); 
-//   }
-// }
 
 //Variation selection handler 
 // $(".variation").click( function() {
@@ -98,13 +89,17 @@ const renderFabrics = async () => {
   const res = await fetch(uri); 
   //converts data to json 
   const fabrics = await res.json(); 
+
+  fabrics.forEach(fabric => {
+    console.log(fabric.color); 
+  }); 
   
   let template = ''; 
   fabrics.forEach(fabric => {
     template += `
-    <li data-feature-value="${fabric.name}" class="variation" id="${fabric.name}" style="background-image: url('${fabric.image}')"></li>
-      `
-  })
+    <li data-feature-value="${fabric.id}" class="variation feature" id="${fabric.name}" style="background:${fabric.color}"></li>
+    `
+  }); 
 
   container.innerHTML = template; 
 } 
