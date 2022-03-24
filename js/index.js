@@ -1,4 +1,9 @@
 
+const cushions = document.querySelectorAll(".cushions"); 
+// const feature = document.querySelector(".variation-selector"); 
+// const variation = document.querySelectorAll(".variation"); 
+
+
 // CYLINDO CODE 
 
 // declare the variable that will hold the 360 HD Viewer instance
@@ -31,16 +36,42 @@ if (cylindo) {
   });
 }
 
+cushions.forEach(function (cushion) {
+  cushion.addEventListener("click", function(event) {
+    event.preventDefault(); 
+    var value = event.target.getAttribute('data-feature-value');
+    var type = event.target.parentNode.getAttribute('data-feature-type'); 
+    console.log(value, type); 
+
+    if(viewerInstance) {
+      viewerInstance.setFeatures([
+        type, 
+        value
+      ]); 
+    }
+  }) 
+})
+
+//THIS WORKS!!!!! 
+// var setCushions = (value, type) => { 
+//   if(viewerInstance) {
+//     viewerInstance.setFeatures([
+//       type, 
+//       value
+//     ]); 
+//   }
+// }
+
 //Variation selection handler 
-$(".variation").click( function() {
+// $(".variation").click( function() {
   //remove the class "selected" from all li elements
-  $(this).parent().find("li").removeClass("selected");
+  // $(this).parent().find("li").removeClass("selected");
   //add the class "selected" to the current clicked element
-  $(this).addClass("selected");  
+  // $(this).addClass("selected");  
   // console.log(this); 
   
   //create array with values from the selected ones
-  var featureArray = [ 
+  // var featureArray = [ 
     //get the first feature type name
     // $(".upholstery").attr("data-feature-type"),
     // //get the feature value for the feature type above
@@ -49,12 +80,12 @@ $(".variation").click( function() {
     // $(".legs").attr("data-feature-type"),    
     // //get the feature value for the feature type above
     // $(".legs .selected").attr("data-feature-value"),
-    $(".cushions").attr("data-feature-type"), 
-    $(".cushions .selected").attr("data-feature-value")
-  ];
+  //   $(".cushions").attr("data-feature-type"), 
+  //   $(".cushions .selected").attr("data-feature-value")
+  // ];
   //this viewer function sends an array with the new selected features
-  viewerInstance.setFeatures(featureArray);
-});
+//   viewerInstance.setFeatures(featureArray);
+// });
 
 // CYLINDO CODE ENDS 
 
