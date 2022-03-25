@@ -2,6 +2,7 @@
 const cushions = document.querySelectorAll(".cushions"); 
 const nailheads = document.querySelectorAll(".nailheads"); 
 const features = document.querySelectorAll(".feature"); 
+const upholstery = document.querySelectorAll(".upholstery"); 
 // const variation = document.querySelectorAll(".variation"); 
 
 
@@ -37,20 +38,62 @@ if (cylindo) {
   });
 }
 
-//gets a displays the feature using a click event
+const featureArr = []; 
+
+// gets a displays the fabric using a click event
 features.forEach(function (feature) {
   feature.addEventListener("click", function(event) {
-    event.preventDefault(); 
+    // event.preventDefault(); 
+
     var value = event.target.getAttribute('data-feature-value');
     var type = event.target.parentNode.getAttribute('data-feature-type'); 
-    console.log(value, type); 
+    // console.log(value, type); 
 
+    //is there a value already assigned to the array? 
+    if (featureArr.length >= 2) {
+
+      //if the array contains UPHOLSTERY, ... 
+      if (featureArr.indexOf("UPHOLSTERY") >= 0) {
+        console.log("Array contains upholstery"); 
+
+        //if the new type is upholstery, then it replaces the old value
+        if (type === 'UPHOLSTERY') {
+          console.log("fabric was replaced.")
+          const upholsteryIndex = featureArr.indexOf('UPHOLSTERY');
+      
+          featureArr[upholsteryIndex + 1] = value; 
+          featureArr[upholsteryIndex] = type;
+        } else {
+          featureArr.push(type, value); 
+        }
+      }
+
+      //if array contains CUSHION TYPE, ... 
+      if (featureArr.indexOf("CUSHION TYPE") >= 0) {
+        console.log("Array contains cushions."); 
+
+        //if new type is cushions, then it replaces the old value
+        if (type === 'CUSHION TYPE') {
+          console.log("cushion was replaced.")
+          const cushionIndex = featureArr.indexOf('CUSHION TYPE');
+
+          featureArr[cushionIndex + 1] = value; 
+          featureArr[cushionIndex] = type;
+        } 
+        else {
+          featureArr.push(type, value);
+        }
+      }
+
+    } else {
+      console.log("first values added")
+      featureArr.push(type, value);
+    }
+
+    console.log(featureArr);
 
     if(viewerInstance) {
-      viewerInstance.setFeatures([
-        type, 
-        value
-      ]); 
+      viewerInstance.setFeatures(featureArr); 
     }
   }) 
 })
@@ -59,26 +102,26 @@ features.forEach(function (feature) {
 
 //Variation selection handler 
 // $(".variation").click( function() {
-  //remove the class "selected" from all li elements
-  // $(this).parent().find("li").removeClass("selected");
-  //add the class "selected" to the current clicked element
-  // $(this).addClass("selected");  
-  // console.log(this); 
+//   // remove the class "selected" from all li elements
+//   $(this).parent().find("li").removeClass("selected");
+//   // add the class "selected" to the current clicked element
+//   $(this).addClass("selected");  
+//   // console.log(this); 
   
-  //create array with values from the selected ones
-  // var featureArray = [ 
-    //get the first feature type name
-    // $(".upholstery").attr("data-feature-type"),
-    // //get the feature value for the feature type above
-    // $(".upholstery .selected").attr("data-feature-value"),
-    // //get the second feature type name
-    // $(".legs").attr("data-feature-type"),    
-    // //get the feature value for the feature type above
-    // $(".legs .selected").attr("data-feature-value"),
-  //   $(".cushions").attr("data-feature-type"), 
-  //   $(".cushions .selected").attr("data-feature-value")
-  // ];
-  //this viewer function sends an array with the new selected features
+//   // create array with values from the selected ones
+//   var featureArray = [ 
+//     // get the first feature type name
+//     $(".upholstery").attr("data-feature-type"),
+//     // get the feature value for the feature type above
+//     $(".upholstery .selected").attr("data-feature-value"),
+//     // get the second feature type name
+//     $(".legs").attr("data-feature-type"),    
+//     // get the feature value for the feature type above
+//     $(".legs .selected").attr("data-feature-value"),
+//     $(".cushions").attr("data-feature-type"), 
+//     $(".cushions .selected").attr("data-feature-value")
+//   ];
+//   // this viewer function sends an array with the new selected features
 //   viewerInstance.setFeatures(featureArray);
 // });
 
@@ -97,7 +140,7 @@ const renderFabrics = async () => {
 
   fabrics.forEach(fabric => {
     template += `
-    <li data-feature-value="${fabric.id}" class="variation feature" id="${fabric.name}" style="background:${fabric.color}"></li>
+    <li data-feature-value="${fabric.id}" class="variation feature upholstery" id="${fabric.name}" style="background:${fabric.color}"></li>
     `
   }); 
 
@@ -118,7 +161,7 @@ const renderLegs = async () => {
   let template = ''; 
   legs.forEach(leg => {
     template += `
-    <li data-feature-value="${leg.name}" class="variation" style="background:${leg.color}"></li>
+    <li data-feature-value="${leg.name}" class="variation legs" style="background:${leg.color}"></li>
       `
   })
 
