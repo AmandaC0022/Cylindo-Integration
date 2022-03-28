@@ -1,8 +1,8 @@
 
-const cushions = document.querySelectorAll(".cushions"); 
-const nailheads = document.querySelectorAll(".nailheads"); 
+// const cushions = document.querySelectorAll(".cushions"); 
+// const nailheads = document.querySelectorAll(".nailheads"); 
 const features = document.querySelectorAll(".feature"); 
-const upholstery = document.querySelectorAll(".upholstery"); 
+// const upholstery = document.querySelectorAll(".upholstery"); 
 // const variation = document.querySelectorAll(".variation"); 
 
 
@@ -52,33 +52,47 @@ features.forEach(function (feature) {
     //is there a value already assigned to the array? 
     if (featureArr.length >= 2) {
 
-      //if the array contains UPHOLSTERY, ... 
-      if (featureArr.indexOf("UPHOLSTERY") >= 0) {
-        console.log("Array contains upholstery"); 
+      //if the new type is UPHOLSTERY, ... 
+      if (type === 'UPHOLSTERY') {
+        console.log("Type is upholstery"); 
 
-        //if the new type is upholstery, then it replaces the old value
-        if (type === 'UPHOLSTERY') {
+        //if the array already contains UPHOLSTERY, then it replaces the old value
+        if (featureArr.indexOf('UPHOLSTERY') >= 0) {
           console.log("fabric was replaced.")
           const upholsteryIndex = featureArr.indexOf('UPHOLSTERY');
       
           featureArr[upholsteryIndex + 1] = value; 
           featureArr[upholsteryIndex] = type;
+          //otherwise, it just adds the new value to the array 
         } else {
           featureArr.push(type, value); 
         }
       }
 
-      //if array contains CUSHION TYPE, ... 
-      if (featureArr.indexOf("CUSHION TYPE") >= 0) {
-        console.log("Array contains cushions."); 
+      if (type === 'CUSHION TYPE') {
+        console.log("Type is cushions."); 
 
-        //if new type is cushions, then it replaces the old value
-        if (type === 'CUSHION TYPE') {
+        if (featureArr.indexOf("CUSHION TYPE") >= 0) {
           console.log("cushion was replaced.")
           const cushionIndex = featureArr.indexOf('CUSHION TYPE');
 
           featureArr[cushionIndex + 1] = value; 
           featureArr[cushionIndex] = type;
+        } 
+        else {
+          featureArr.push(type, value);
+        }
+      }
+
+      if (type === 'NAILHEAD') {
+        console.log("Type is nailhead."); 
+
+        if (featureArr.indexOf("NAILHEAD") >= 0) {
+          console.log("nailhead was replaced.")
+          const nailheadIndex = featureArr.indexOf('NAILHEAD');
+
+          featureArr[nailheadIndex + 1] = value; 
+          featureArr[nailheadIndex] = type;
         } 
         else {
           featureArr.push(type, value);
