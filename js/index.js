@@ -40,6 +40,16 @@ if (cylindo) {
 
 const featureArr = []; 
 
+const filterNull = () => {
+  featureArr.forEach(item => {
+    if (item !== null) {
+      featureArr.push(item); 
+    }
+  }); 
+  console.log("null values were removed.", featureArr); 
+  return featureArr; 
+}
+
 // gets a displays the fabric using a click event
 features.forEach(function (feature) {
   feature.addEventListener("click", function(event) {
@@ -54,7 +64,7 @@ features.forEach(function (feature) {
 
       //if the new type is UPHOLSTERY, ... 
       if (type === 'UPHOLSTERY') {
-        console.log("Type is upholstery"); 
+        // console.log("Type is upholstery"); 
 
         //if the array already contains UPHOLSTERY, then it replaces the old value
         if (featureArr.indexOf('UPHOLSTERY') >= 0) {
@@ -70,7 +80,7 @@ features.forEach(function (feature) {
       }
 
       if (type === 'CUSHION TYPE') {
-        console.log("Type is cushions."); 
+        // console.log("Type is cushions."); 
 
         if (featureArr.indexOf("CUSHION TYPE") >= 0) {
           console.log("cushion was replaced.")
@@ -85,7 +95,7 @@ features.forEach(function (feature) {
       }
 
       if (type === 'NAILHEAD') {
-        console.log("Type is nailhead."); 
+        // console.log("Type is nailhead."); 
 
         if (featureArr.indexOf("NAILHEAD") >= 0) {
           console.log("nailhead was replaced.")
@@ -94,18 +104,17 @@ features.forEach(function (feature) {
           featureArr[nailheadIndex + 1] = value; 
           featureArr[nailheadIndex] = type;
         } 
-        else {
+        else {  
           featureArr.push(type, value);
         }
       }
 
     } else {
-      console.log("first values added")
+      console.log("first values added"); 
       featureArr.push(type, value);
     }
-
-    console.log(featureArr);
-
+    console.log(featureArr); 
+    
     if(viewerInstance) {
       viewerInstance.setFeatures(featureArr); 
     }

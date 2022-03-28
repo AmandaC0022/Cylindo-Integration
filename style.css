@@ -68,6 +68,10 @@ hr {
   font-size:15px;
 }
 
+.feature li:hover {
+  cursor: pointer;
+}
+
 /*Override style for the viewer tooltip text */
 .cylindo-drag-tooltip,.cylindo-zoom-drag-tooltip{
   color:#B2A2D3 !important;
