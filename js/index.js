@@ -1,12 +1,4 @@
-
-// const cushions = document.querySelectorAll(".cushions"); 
-// const nailheads = document.querySelectorAll(".nailheads"); 
 const features = document.querySelectorAll(".feature"); 
-// const upholstery = document.querySelectorAll(".upholstery"); 
-// const variation = document.querySelectorAll(".variation"); 
-
-
-// CYLINDO CODE 
 
 // declare the variable that will hold the 360 HD Viewer instance
 var viewerInstance = null;
@@ -38,22 +30,13 @@ if (cylindo) {
   });
 }
 
+//declares an empty array to push the features into 
 const featureArr = []; 
-
-const filterNull = () => {
-  featureArr.forEach(item => {
-    if (item !== null) {
-      featureArr.push(item); 
-    }
-  }); 
-  console.log("null values were removed.", featureArr); 
-  return featureArr; 
-}
 
 // gets a displays the fabric using a click event
 features.forEach(function (feature) {
   feature.addEventListener("click", function(event) {
-    // event.preventDefault(); 
+    event.preventDefault(); 
 
     var value = event.target.getAttribute('data-feature-value');
     var type = event.target.parentNode.getAttribute('data-feature-type'); 
@@ -80,8 +63,6 @@ features.forEach(function (feature) {
       }
 
       if (type === 'CUSHION TYPE') {
-        // console.log("Type is cushions."); 
-
         if (featureArr.indexOf("CUSHION TYPE") >= 0) {
           console.log("cushion was replaced.")
           const cushionIndex = featureArr.indexOf('CUSHION TYPE');
@@ -95,8 +76,6 @@ features.forEach(function (feature) {
       }
 
       if (type === 'NAILHEAD') {
-        // console.log("Type is nailhead."); 
-
         if (featureArr.indexOf("NAILHEAD") >= 0) {
           console.log("nailhead was replaced.")
           const nailheadIndex = featureArr.indexOf('NAILHEAD');
@@ -110,45 +89,24 @@ features.forEach(function (feature) {
       }
 
     } else {
+      //prevents user error of clicking on the wrong space 
+      if (type === null) {
+        console.log("Type is null"); 
+        return featureArr; 
+      }
+
       console.log("first values added"); 
       featureArr.push(type, value);
     }
+
     console.log(featureArr); 
-    
+
+    //sends the features array in the API call to Cylindo 
     if(viewerInstance) {
       viewerInstance.setFeatures(featureArr); 
     }
   }) 
-})
-
-//CYLINDO'S CODE 
-
-//Variation selection handler 
-// $(".variation").click( function() {
-//   // remove the class "selected" from all li elements
-//   $(this).parent().find("li").removeClass("selected");
-//   // add the class "selected" to the current clicked element
-//   $(this).addClass("selected");  
-//   // console.log(this); 
-  
-//   // create array with values from the selected ones
-//   var featureArray = [ 
-//     // get the first feature type name
-//     $(".upholstery").attr("data-feature-type"),
-//     // get the feature value for the feature type above
-//     $(".upholstery .selected").attr("data-feature-value"),
-//     // get the second feature type name
-//     $(".legs").attr("data-feature-type"),    
-//     // get the feature value for the feature type above
-//     $(".legs .selected").attr("data-feature-value"),
-//     $(".cushions").attr("data-feature-type"), 
-//     $(".cushions .selected").attr("data-feature-value")
-//   ];
-//   // this viewer function sends an array with the new selected features
-//   viewerInstance.setFeatures(featureArray);
-// });
-
-// CYLINDO CODE ENDS 
+}); 
 
 const container = document.querySelector('#fabric_choices'); 
 
